@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+}
+
+@supports (position: sticky) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+}
+.navbar {
+  display: flex;
+  background-color: black;
+  padding: 1rem;
+  gap: 1rem;
+}
+.navbar a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  transition: color 0.8s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #3173c9;
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.1s;
+}
+.navbar a::before {
+  position: absolute;
+  content: "";
+  height: 0.2rem;
+  width: 0%;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.1s;
+}
+.navbar a:hover {
+  color: red;
+}
+.navbar a:hover::before {
+  width: 100%;
+}
+
+.services .card-1 {
+  color: white;
+  text-align: center;
+  margin: 1rem auto;
+  width: 250px;
+  height: 350px;
+  background-color: cornflowerblue;
+  -webkit-animation-property: carga 0.5s ease-in 0.2s;
+  -moz-animation-property: carga 0.5s ease-in 0.2s;
+  animation: carga 0.5s ease-in 0.2s;
+}
+.services .card-2 {
+  color: white;
+  text-align: center;
+  margin: 1rem auto;
+  width: 250px;
+  height: 350px;
+  background-color: cornflowerblue;
+  -webkit-animation-property: carga 0.5s ease-in 0.2s;
+  -moz-animation-property: carga 0.5s ease-in 0.2s;
+  animation: carga 0.5s ease-in 0.2s;
+}
+.services .card-3 {
+  color: white;
+  text-align: center;
+  margin: 1rem auto;
+  width: 250px;
+  height: 350px;
+  background-color: cornflowerblue;
+  -webkit-animation-property: carga 0.5s ease-in 0.2s;
+  -moz-animation-property: carga 0.5s ease-in 0.2s;
+  animation: carga 0.5s ease-in 0.2s;
+}
+
+@keyframes carga {
+  0% {
+    transform: translateY 25px;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY 0px;
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

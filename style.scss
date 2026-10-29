@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+}
+
+@mixin transform($propiedad,$valor){
+    -webkit-transform: $propiedad($valor);
+
+    -moz-transform: $propiedad($valor);
+
+    transform: $propiedad($valor);
+}
+
+@mixin animacion($name, $duration, $function, $delay){
+    -webkit-animation-property: $name $duration $function $delay;
+
+    -moz-animation-property: $name $duration $function $delay;
+
+    animation: $name $duration $function $delay;
+}
+
+.navbar{
+    @supports (position: sticky){
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    display: flex;
+    background-color: black;
+    padding: 1rem;
+    gap: 1rem;
+
+    & a{
+        position: relative;
+        color: white;
+        text-decoration: none;
+        transition: color  0.8s ease-in-out;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background-color: #3173c9;
+        transition-property: color;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0.1s;
+
+        &::before{
+            position: absolute;
+            content: "";
+            height: 0.2rem;
+            width: 0%;
+            background-color: red;
+            bottom: 0;
+            left: 0;
+            transition-property: width;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 0.1s;
+        }
+
+        &:hover{
+            color: red;
+
+            &::before{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.services{
+
+    @for $i from 1 through 3 {
+        .card-#{$i}{
+            color: white;
+            text-align: center;
+            margin: 1rem auto;
+            width: 250px;
+            height: 350px;
+            background-color: cornflowerblue;
+            @include animacion(carga, 0.5s, ease-in, 0.2s);
+        }    
+    }
+}
+
+
+@keyframes carga {
+    0%{
+        @include transform(translateY,25px);
+        opacity: 0;
+    } 
+    100%{
+        @include transform(translateY,0px);
+        opacity: 1;
+    }
+}
+
